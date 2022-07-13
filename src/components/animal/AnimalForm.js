@@ -101,9 +101,9 @@ export const AnimalForm = () => {
       </fieldset>
       <fieldset>
         <div className="form-group">
-          <label htmlFor="treatment">Treatments: </label>
-          <textarea type="text" name="treatment" className="form-control"
-            value={animal.treatment}
+          <label htmlFor="treatment">Status: </label>
+          <textarea type="text" name="status" className="form-control"
+            value={animal.status}
             onChange={handleControlledInputChange}>
           </textarea>
         </div>
