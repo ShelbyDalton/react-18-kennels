@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom"
+import { Navigate, Route, Routes, useNavigate } from "react-router-dom"
 import { LocationList } from '../components/location/LocationList'
 import { LocationDetail } from '../components/location/LocationDetail'
 import { AnimalList } from '../components/animal/AnimalList'
@@ -10,12 +10,19 @@ import { EmployeeForm } from '../components/employee/EmployeeForm'
 import { EmployeeDetail } from '../components/employee/EmployeeDetail'
 import { Login } from "../components/auth/Login"
 import { Register } from "../components/auth/Register"
+import { useEffect } from "react"
 
 export const ApplicationViews = () => {
+	let navigate = useNavigate();
+	useEffect(() => {
+
+		console.log(localStorage.getItem("kennel_customer"))
+		if (localStorage.getItem("kennels_customer") === null) {
+			return navigate("/login")
+		}
+	}, [])
 	return (
 		<Routes>
-			<Route path="/login" element={<Login />} />
-			<Route path="/register" element={<Register />} />
 			<Route path="/">
 				<Route index element={< LocationList />} />
 				<Route path="locations/:locationId" element={<LocationDetail />} />
@@ -35,6 +42,9 @@ export const ApplicationViews = () => {
 				<Route path="edit/:employeeId" element={<EmployeeForm />} />
 				<Route path=":employeeId" element={<EmployeeDetail />} />
 			</Route>
+			<Route path="/login" element={<Login />} />
+			<Route path="/register" element={<Register />} />
+
 		</Routes>
 	)
 }
