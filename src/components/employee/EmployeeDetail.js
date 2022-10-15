@@ -20,9 +20,9 @@ export const EmployeeDetail = () => {
       <div>Currently working at {employee.location?.name}</div>
       <div>
         {
-          (employee.animal === undefined)
-            ? "Not assigned to an animal"
-            : `Currently taking care of ${employee.animal?.name}`
+          (employee?.animals?.length === 0)
+          ? "Not assigned to any animals"
+          : `Currently taking care of ${employee?.animals?.map(a => a.name)}`
         }
       </div>
     </section>

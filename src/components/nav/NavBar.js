@@ -6,12 +6,17 @@ export const NavBar = () => {
 
   return (
     <ul className="navbar">
-      <li className="navbar__item active">
+      <li className="navbar__item">
         <Link className="navbar__link" to="/">Locations</Link>
+      </li>
+      <li className="navbar__item">
         <Link className="navbar__link" to="/employees">Employees</Link>
+      </li>
+      <li className="navbar__item">
         <Link className="navbar__link" to="/customers">Customers</Link>
+      </li>
+      <li className="navbar__item">
         <Link className="navbar__link" to="/animals">Animals</Link>
-
       </li>
       {
         localStorage.getItem("kennels_customer")
@@ -26,4 +31,3 @@ export const NavBar = () => {
     </ul>
   )
 }
-
